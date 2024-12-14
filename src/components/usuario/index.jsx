@@ -4,7 +4,7 @@ export default function Usuario(props) {
       style={{
         display: "flex",
         height: "80px",
-        gap: "12px",
+        gap: "17px",
         paddingTop: "70px",
         alignItems: "center",
         justifyContent: "center",
@@ -13,7 +13,7 @@ export default function Usuario(props) {
       <img
         src={props.imageUrl}
         style={{
-          height: "100%",
+          height: "60px",
           borderRadius: "100%",
           objectFit: "cover",
           aspectRatio: "1",

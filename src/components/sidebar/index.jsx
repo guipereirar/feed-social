@@ -1,19 +1,45 @@
+import { House } from "lucide-react";
 import Usuario from "../usuario";
+import Icon from "../icons";
 
 function Sidebar() {
   return (
     <div
       style={{
-        width: "18%",
+        width: "15%",
         height: "100vh",
         borderRight: "2px solid black",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
       }}
     >
-      <Usuario
-        imageUrl="https://sujeitoprogramador.com/steve.png"
-        name="usuario aleatório"
-        username="random_user"
-      />
+      <div>
+        <Usuario
+          imageUrl="https://thispersondoesnotexist.com/"
+          name="Usuário aleatório"
+          username="random_user"
+        />
+        <Icon />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "flex-end",
+          justifyContent: "center",
+          paddingBottom: "50px",
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "Lexend",
+            fontSize: "40px",
+            fontWeight: "bold",
+          }}
+        >
+          feed
+        </p>
+      </div>
     </div>
   );
 }
