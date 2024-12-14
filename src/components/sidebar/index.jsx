@@ -1,8 +1,7 @@
-import { House } from "lucide-react";
 import Usuario from "../usuario";
 import Icon from "../icons";
 
-function Sidebar() {
+export default function Sidebar() {
   return (
     <div
       style={{
@@ -43,5 +42,3 @@ function Sidebar() {
     </div>
   );
 }
-
-export default Sidebar;
