@@ -11,7 +11,7 @@ export default function User(props) {
       }}
     >
       <img
-        src={props.imageUrl}
+        src={props.userIcon}
         style={{
           height: "60px",
           borderRadius: "100%",

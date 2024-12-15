@@ -1,9 +1,10 @@
-import PostField from "./components/postFIeld";
-import Sidebar from "./components/sidebar/index";
+import FeedPost from "./components/feedPost/feedPost";
+import PostField from "./components/postField/postField";
+import Sidebar from "./components/sidebar/sidebar";
 import "./index.css";
 
 function App() {
-  return <PostField />;
+  return <Sidebar />;
 }
 
 export default App;

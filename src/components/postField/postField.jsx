@@ -1,6 +1,6 @@
 import { Image } from "lucide-react";
 
-export default function PostField(props) {
+export default function PostField() {
   return (
     <div
       style={{
