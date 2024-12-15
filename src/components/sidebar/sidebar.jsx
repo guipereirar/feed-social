@@ -1,5 +1,5 @@
-import Usuario from "../usuario";
-import Icon from "../icons";
+import User from "../user/user";
+import SidebarIcons from "./sidebarIcons";
 
 export default function Sidebar() {
   return (
@@ -14,12 +14,12 @@ export default function Sidebar() {
       }}
     >
       <div>
-        <Usuario
+        <User
           imageUrl="https://thispersondoesnotexist.com/"
           name="Usuário aleatório"
           username="random_user"
         />
-        <Icon />
+        <SidebarIcons />
       </div>
       <div
         style={{

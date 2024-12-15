@@ -1,6 +1,6 @@
 import { Hash, House, Settings } from "lucide-react";
 
-export default function Icon() {
+export default function SidebarIcons() {
   return (
     <div
       style={{
