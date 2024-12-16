@@ -1,7 +1,7 @@
 import Sidebar from "./components/sidebar/sidebar";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router";
-import Home from "./pages/Home";
+import Home from "./pages/home/home";
 
 function App() {
   return (

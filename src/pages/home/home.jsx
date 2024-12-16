@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import FeedPost from "../components/feedPost/feedPost";
-import PostField from "../components/postField/postField";
+import FeedPost from "./feedPost";
+import PostField from "./postField";
 import axios from "axios";
+import RelativeTime from "../../components/functions/relativeTime";
 
 const API_URL = "https://api.unsplash.com/photos";
 
@@ -13,6 +14,7 @@ export default function Home() {
       .get(`${API_URL}?client_id=${import.meta.env.VITE_API_KEY}`)
       .then((response) => {
         setImages(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -40,9 +42,9 @@ export default function Home() {
           key={image.id}
           userIcon={image.user.profile_image.medium}
           name={image.user.name}
+          date={RelativeTime(image.created_at)}
           postImage={image.urls.regular}
           likes={image.likes}
-          comments="0"
           username={image.user.username}
           description={image.alt_description}
         />

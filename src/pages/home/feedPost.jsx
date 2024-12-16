@@ -1,4 +1,4 @@
-import { Heart, MessageCircle, Share } from "lucide-react";
+import { Heart, Share } from "lucide-react";
 
 export default function FeedPost(props) {
   return (
@@ -16,11 +16,12 @@ export default function FeedPost(props) {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          gap: "70%",
           width: "100%",
           paddingTop: "10px",
           paddingBottom: "10px",
           paddingLeft: "25px",
+          paddingRight: "25px",
+          boxSizing: "border-box",
         }}
       >
         <div
@@ -43,13 +44,17 @@ export default function FeedPost(props) {
             style={{
               fontSize: "15px",
               fontWeight: "bold",
-              whiteSpace: "nowrap",
             }}
           >
             {props.name}
           </p>
         </div>
-        <p style={{ display: "flex", alignItems: "center", fontSize: "15px" }}>
+        <p
+          style={{
+            fontSize: "15px",
+            whiteSpace: "nowrap",
+          }}
+        >
           {props.date}
         </p>
       </div>
@@ -71,14 +76,6 @@ export default function FeedPost(props) {
             </button>
             <p style={{ fontSize: "15px", fontWeight: "bold" }}>
               {props.likes}
-            </p>
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-            <button style={{ border: "none" }}>
-              <MessageCircle />
-            </button>
-            <p style={{ fontSize: "15px", fontWeight: "bold" }}>
-              {props.comments}
             </p>
           </div>
         </div>
