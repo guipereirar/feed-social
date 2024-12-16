@@ -11,6 +11,7 @@ export default function Sidebar() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+        position: "fixed",
       }}
     >
       <div>

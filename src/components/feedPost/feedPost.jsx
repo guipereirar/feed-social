@@ -14,11 +14,13 @@ export default function FeedPost(props) {
       <div
         style={{
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "space-between",
+          alignItems: "center",
           gap: "70%",
-          width: "95%",
+          width: "100%",
           paddingTop: "10px",
           paddingBottom: "10px",
+          paddingLeft: "25px",
         }}
       >
         <div
@@ -37,7 +39,15 @@ export default function FeedPost(props) {
               aspectRatio: "1",
             }}
           />
-          <p style={{ fontSize: "15px", fontWeight: "bold" }}>{props.name}</p>
+          <p
+            style={{
+              fontSize: "15px",
+              fontWeight: "bold",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {props.name}
+          </p>
         </div>
         <p style={{ display: "flex", alignItems: "center", fontSize: "15px" }}>
           {props.date}

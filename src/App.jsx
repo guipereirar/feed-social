@@ -1,10 +1,19 @@
-import FeedPost from "./components/feedPost/feedPost";
-import PostField from "./components/postField/postField";
 import Sidebar from "./components/sidebar/sidebar";
-import "./index.css";
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router";
+import Home from "./pages/Home";
 
 function App() {
-  return <Sidebar />;
+  return (
+    <BrowserRouter>
+      <div style={{ display: "flex" }}>
+        <Sidebar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;
