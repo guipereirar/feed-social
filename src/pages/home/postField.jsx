@@ -8,7 +8,7 @@ export default function PostField() {
         height: "100px",
         width: "600px",
         backgroundColor: "#EAEAEA",
-        border: "2px solid #787878",
+        border: "1px solid #787878",
         borderRadius: "5px",
         justifyContent: "space-between",
       }}

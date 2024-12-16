@@ -7,7 +7,7 @@ export default function Sidebar() {
       style={{
         width: "15%",
         height: "100vh",
-        borderRight: "2px solid black",
+        borderRight: "1px solid #787878",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",

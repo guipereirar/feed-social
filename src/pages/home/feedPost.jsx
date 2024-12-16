@@ -7,7 +7,7 @@ export default function FeedPost(props) {
         height: "535px",
         width: "600px",
         backgroundColor: "#EAEAEA",
-        border: "2px solid #787878",
+        border: "1px solid #787878",
         borderRadius: "5px",
       }}
     >

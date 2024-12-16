@@ -31,7 +31,7 @@ export default function Home() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: "70px",
+        gap: "30px",
         width: "100%",
         paddingTop: "70px",
       }}
