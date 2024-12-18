@@ -1,4 +1,4 @@
-import User from "../user/user";
+import LoggedUser from "../user/loggedUser";
 import SidebarInfos from "./sidebarInfos";
 
 export default function Sidebar() {
@@ -15,7 +15,7 @@ export default function Sidebar() {
       }}
     >
       <div>
-        <User
+        <LoggedUser
           userIcon="https://thispersondoesnotexist.com/"
           name="Usuário aleatório"
           username="random_user"
