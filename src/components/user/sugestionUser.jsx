@@ -1,6 +1,29 @@
-export default function SugestionUser(props) {
-  return (
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+const API_SEARCH_USER = "https://api.unsplash.com/photos/random";
+const API_URL = `https://api.unsplash.com/users/`;
+
+export default function SugestionUser() {
+  const [usersInfo, setUsersInfo] = useState([]);
+
+  const fetchUsername = () => {
+    axios
+      .get(
+        `${API_SEARCH_USER}?client_id=${import.meta.env.VITE_API_KEY}&count=5`
+      )
+      .then((response) => {
+        setUsersInfo(response.data);
+      });
+  };
+
+  useEffect(() => {
+    fetchUsername();
+  }, []);
+
+  return usersInfo.map((userInfo) => (
     <div
+      key={userInfo.id}
       style={{
         display: "flex",
         alignItems: "center",
@@ -15,7 +38,7 @@ export default function SugestionUser(props) {
         }}
       >
         <img
-          src={props.userIcon}
+          src={userInfo.user.profile_image.medium}
           style={{
             height: "60px",
             borderRadius: "100%",
@@ -34,11 +57,11 @@ export default function SugestionUser(props) {
             textOverflow: "ellipsis",
           }}
         >
-          <p>@{props.username}</p>
-          <p>{props.followers} seguidores</p>
+          <p>@{userInfo.user.username}</p>
+          <p>{userInfo.user.total_photos} fotos</p>
         </div>
       </div>
       <p style={{ fontWeight: "bold", color: "#007AFF" }}>Seguir</p>
     </div>
-  );
+  ));
 }

@@ -1,8 +1,32 @@
 import { Heart, Share } from "lucide-react";
+import RelativeTime from "../../components/functions/relativeTime";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-export default function FeedPost(props) {
-  return (
+const API_URL = "https://api.unsplash.com/photos";
+
+export default function FeedPost() {
+  const [images, setImages] = useState([]);
+
+  const fetchImages = () => {
+    axios
+      .get(`${API_URL}?client_id=${import.meta.env.VITE_API_KEY}`)
+      .then((response) => {
+        setImages(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    fetchImages();
+  }, []);
+
+  return images.map((image) => (
     <div
+      key={image.id}
       style={{
         height: "535px",
         width: "600px",
@@ -32,7 +56,7 @@ export default function FeedPost(props) {
           }}
         >
           <img
-            src={props.userIcon}
+            src={image.user.profile_image.medium}
             style={{
               height: "25px",
               borderRadius: "100%",
@@ -46,7 +70,7 @@ export default function FeedPost(props) {
               fontWeight: "bold",
             }}
           >
-            {props.name}
+            {image.user.name}
           </p>
         </div>
         <p
@@ -55,11 +79,11 @@ export default function FeedPost(props) {
             whiteSpace: "nowrap",
           }}
         >
-          {props.date}
+          {RelativeTime(image.created_at)}
         </p>
       </div>
       <img
-        src={props.postImage}
+        src={image.urls.regular}
         style={{ height: "400px", width: "600px", objectFit: "cover" }}
       ></img>
       <div
@@ -75,16 +99,20 @@ export default function FeedPost(props) {
               <Heart />
             </button>
             <p style={{ fontSize: "15px", fontWeight: "bold" }}>
-              {props.likes}
+              {image.likes}
             </p>
           </div>
         </div>
         <Share />
       </div>
       <div style={{ display: "flex", gap: "10px", paddingLeft: "15px" }}>
-        <p style={{ fontSize: "15px", fontWeight: "bold" }}>{props.username}</p>
-        <p style={{ fontSize: "15px" }}>{props.description}</p>
+        <p style={{ fontSize: "15px", fontWeight: "bold" }}>
+          {image.user.username}
+        </p>
+        <p style={{ fontSize: "15px" }}>{image.alt_description}</p>
       </div>
     </div>
-  );
+  ));
+  // return (
+  //);
 }
