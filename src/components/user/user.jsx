@@ -1,4 +1,4 @@
-export default function LoggedUser(props) {
+export default function User(props) {
   return (
     <div
       style={{

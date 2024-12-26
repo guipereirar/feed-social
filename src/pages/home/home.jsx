@@ -1,6 +1,6 @@
 import FeedPost from "./feedPost";
-import PostField from "./postField";
-import RightSidebar from "../../components/rightSidebar/rightSidebar";
+import UserPost from "./userPost";
+import SugestionSidebar from "./sugestionSidebar";
 
 export default function Home() {
   return (
@@ -22,10 +22,10 @@ export default function Home() {
           paddingTop: "70px",
         }}
       >
-        <PostField />
+        <UserPost />
         <FeedPost />
       </div>
-      <RightSidebar />
+      <SugestionSidebar />
     </div>
   );
 }

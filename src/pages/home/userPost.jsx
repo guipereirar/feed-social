@@ -1,6 +1,6 @@
 import { Image } from "lucide-react";
 
-export default function PostField() {
+export default function UserPost() {
   return (
     <div
       style={{

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const API_SEARCH_USER = "https://api.unsplash.com/photos/random";
 const API_URL = `https://api.unsplash.com/users/`;
 
-export default function SugestionUser() {
+export default function UserSugestion() {
   const [usersInfo, setUsersInfo] = useState([]);
 
   const fetchUsername = () => {

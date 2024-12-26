@@ -1,6 +1,6 @@
-import SugestionUser from "../user/sugestionUser";
+import UserSugestion from "../../components/user/userSugestion";
 
-export default function RightSidebar() {
+export default function SugestionSidebar() {
   return (
     <div
       style={{
@@ -19,7 +19,7 @@ export default function RightSidebar() {
         }}
       >
         <p style={{ fontWeight: "bold" }}>Contas sugeridas</p>
-        <SugestionUser />
+        <UserSugestion />
       </div>
     </div>
   );
