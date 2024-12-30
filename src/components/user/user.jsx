@@ -13,7 +13,7 @@ export default function User(props) {
       <img
         src={props.userIcon}
         style={{
-          height: "60px",
+          height: "55px",
           borderRadius: "100%",
           objectFit: "cover",
           aspectRatio: "1",
@@ -21,7 +21,7 @@ export default function User(props) {
       />
       <div>
         <p style={{ fontSize: "15px", fontWeight: "bold" }}>{props.name}</p>
-        <p style={{ fontSize: "13px" }}>@{props.username}</p>
+        <p style={{ fontSize: "14px" }}>@{props.username}</p>
       </div>
     </div>
   );

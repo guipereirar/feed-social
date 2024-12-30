@@ -24,7 +24,7 @@ export default function Sidebar() {
           style={{
             display: "flex",
             justifyContent: "center",
-            paddingTop: "138px",
+            paddingTop: "190px",
           }}
         >
           <div
