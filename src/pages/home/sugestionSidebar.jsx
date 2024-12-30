@@ -1,4 +1,4 @@
-import UserSugestion from "../../components/user/userSugestion";
+import UserSugestion from "../../components/user/sugestedUser";
 
 export default function SugestionSidebar() {
   return (
