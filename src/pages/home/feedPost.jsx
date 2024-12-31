@@ -31,7 +31,7 @@ export default function FeedPost() {
         height: "535px",
         width: "600px",
         backgroundColor: "#EAEAEA",
-        border: "1px solid #787878",
+        border: "1px solid rgba(0,0 ,0, 0.4)",
         borderRadius: "5px",
       }}
     >
