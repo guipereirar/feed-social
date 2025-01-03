@@ -1,5 +1,6 @@
 import { Hash, House, Settings } from "lucide-react";
 import User from "../user/user";
+import { NavLink } from "react-router";
 
 export default function Sidebar() {
   return (
@@ -12,6 +13,7 @@ export default function Sidebar() {
         flexDirection: "column",
         justifyContent: "space-between",
         position: "fixed",
+        zIndex: 1000,
       }}
     >
       <div>
@@ -30,22 +32,34 @@ export default function Sidebar() {
           <div
             style={{ display: "flex", flexDirection: "column", gap: "15px" }}
           >
-            <div style={{ display: "flex", gap: "20px" }}>
-              <House />
-              <a style={{ fontSize: "20px", fontWeight: "bold" }}>
-                Página Inicial
-              </a>
-            </div>
-            <div style={{ display: "flex", gap: "20px" }}>
-              <Hash />
-              <a style={{ fontSize: "20px", fontWeight: "bold" }}>Explorar</a>
-            </div>
-            <div style={{ display: "flex", gap: "20px" }}>
-              <Settings />
-              <a style={{ fontSize: "20px", fontWeight: "bold" }}>
-                Configurações
-              </a>
-            </div>
+            <NavLink to="/" style={{ textDecoration: "none", color: "black" }}>
+              <div style={{ display: "flex", gap: "20px" }}>
+                <House />
+                <p style={{ fontSize: "20px", fontWeight: "bold" }}>
+                  Página Inicial
+                </p>
+              </div>
+            </NavLink>
+            <NavLink
+              to="/explore"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <div style={{ display: "flex", gap: "20px" }}>
+                <Hash />
+                <p style={{ fontSize: "20px", fontWeight: "bold" }}>Explorar</p>
+              </div>
+            </NavLink>
+            <NavLink
+              to="/settings"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <div style={{ display: "flex", gap: "20px" }}>
+                <Settings />
+                <p style={{ fontSize: "20px", fontWeight: "bold" }}>
+                  Configurações
+                </p>
+              </div>
+            </NavLink>
           </div>
         </div>
       </div>
