@@ -10,6 +10,7 @@ export default function FeedPost() {
   const theme = useContext(ThemeContext);
   const night = theme.state.nightMode;
   const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchImages = () => {
     axios
@@ -17,6 +18,7 @@ export default function FeedPost() {
       .then((response) => {
         setImages(response.data);
         console.log(response.data);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -24,8 +26,10 @@ export default function FeedPost() {
   };
 
   useEffect(() => {
-    fetchImages();
-  }, []);
+    if (loading) {
+      fetchImages();
+    }
+  }, [loading]);
 
   return images.map((image) => (
     <div

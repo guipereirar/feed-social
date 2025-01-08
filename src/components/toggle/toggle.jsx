@@ -5,12 +5,11 @@ import { ThemeContext } from "../../context/theme";
 export default function Toggle() {
   const theme = useContext(ThemeContext);
   const night = theme.state.nightMode;
+
   const handleClick = () => {
     theme.dispatch({ type: "TOGGLE" });
   };
-  useEffect(() => {
-    console.log("Night mode updated:", night);
-  }, [night]);
+
   return (
     <div
       style={{

@@ -1,12 +1,13 @@
-import UserSugestion from "../../components/user/sugestedUser";
+import UserSugestion from "../../components/user/userSugestion.jsx";
 
 export default function SugestionSidebar() {
   return (
     <div
       style={{
         display: "flex",
+        justifyContent: "center",
         width: "25%",
-        position: "sticky",
+        height: "100vh",
         top: "0",
       }}
     >

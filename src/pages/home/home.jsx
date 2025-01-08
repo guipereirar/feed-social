@@ -9,7 +9,6 @@ export default function Home() {
         display: "flex",
         width: "100%",
         marginLeft: "15%",
-        position: "sticky",
       }}
     >
       <div
