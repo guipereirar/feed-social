@@ -1,11 +1,14 @@
 import { Heart, Share } from "lucide-react";
 import RelativeTime from "../../components/functions/relativeTime";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ThemeContext } from "../../context/theme";
 
 const API_URL = "https://api.unsplash.com/photos";
 
 export default function FeedPost() {
+  const theme = useContext(ThemeContext);
+  const night = theme.state.nightMode;
   const [images, setImages] = useState([]);
 
   const fetchImages = () => {
@@ -30,8 +33,10 @@ export default function FeedPost() {
       style={{
         height: "535px",
         width: "600px",
-        backgroundColor: "#EAEAEA",
-        border: "1px solid rgba(0,0 ,0, 0.4)",
+        backgroundColor: night ? "#EAEAEA" : "#121212",
+        border: night
+          ? "1px solid rgba(0, 0, 0, 0.4)"
+          : "1px solid rgba(255, 255, 255, 0.4)",
         borderRadius: "5px",
       }}
     >
@@ -95,9 +100,8 @@ export default function FeedPost() {
       >
         <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-            <button style={{ border: "none" }}>
-              <Heart />
-            </button>
+            <Heart />
+
             <p style={{ fontSize: "15px", fontWeight: "bold" }}>
               {image.likes}
             </p>

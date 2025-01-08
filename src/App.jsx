@@ -4,19 +4,37 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import Home from "./pages/home/home";
 import Explore from "./pages/explore/explore";
 import Settings from "./pages/settings/settings";
+import { ThemeContext, ThemeProvicer } from "./context/theme";
+import { useContext } from "react";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div style={{ display: "flex" }}>
-        <Sidebar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/explore" element={<Explore />} />
-          <Route path="/settings" element={<Settings />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <ThemeProvicer>
+      <BrowserRouter>
+        <Content />
+      </BrowserRouter>
+    </ThemeProvicer>
+  );
+}
+
+function Content() {
+  const theme = useContext(ThemeContext);
+  const night = theme.state.nightMode;
+  return (
+    <div
+      style={{
+        display: "flex",
+        backgroundColor: night ? "#f1f0f0" : "#000000",
+        color: night ? "#000000" : "#FFFFFF",
+      }}
+    >
+      <Sidebar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/settings" element={<Settings />} />
+      </Routes>
+    </div>
   );
 }
 

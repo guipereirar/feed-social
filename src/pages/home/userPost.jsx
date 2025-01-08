@@ -1,14 +1,20 @@
 import { Image } from "lucide-react";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/theme";
 
 export default function UserPost() {
+  const theme = useContext(ThemeContext);
+  const night = theme.state.nightMode;
   return (
     <div
       style={{
         display: "flex",
         height: "100px",
         width: "600px",
-        backgroundColor: "#EAEAEA",
-        border: "1px solid rgba(0,0 ,0, 0.4)",
+        backgroundColor: night ? "#EAEAEA" : "#121212",
+        border: night
+          ? "1px solid rgba(0, 0, 0, 0.4)"
+          : "1px solid rgba(255, 255, 255, 0.4)",
         borderRadius: "5px",
         justifyContent: "space-between",
       }}
@@ -58,11 +64,12 @@ export default function UserPost() {
           style={{
             height: "25px",
             width: "100px",
-            backgroundColor: "black",
-            color: "white",
+            backgroundColor: night ? "#000000" : "#ffffff",
+            color: night ? "#ffffff" : "#000000",
             fontWeight: "bold",
             border: "none",
             borderRadius: "10px",
+            cursor: "pointer",
           }}
         >
           Postar

@@ -1,11 +1,14 @@
 import { Search } from "lucide-react";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import axios from "axios";
+import { ThemeContext } from "../../context/theme";
 
 const API_RANDOM_IMAGES = "https://api.unsplash.com/photos/random";
 const API_SEARCH_IMAGES = "https://api.unsplash.com/search/photos";
 
 export default function Explore() {
+  const theme = useContext(ThemeContext);
+  const night = theme.state.nightMode;
   const searchInput = useRef(null);
   const [images, setImages] = useState([]);
 
@@ -36,7 +39,7 @@ export default function Explore() {
           setImages(response.data.results);
         })
         .catch((error) => {
-          console.log(error);
+          console.error("Erro ao buscar imagens:", error);
         });
     }
   };
@@ -69,7 +72,7 @@ export default function Explore() {
           width: "870px",
           height: "50px",
           borderRadius: "10px",
-          backgroundColor: "white",
+          backgroundColor: night ? "#ffffff" : "#121212",
           alignItems: "center",
           justifyContent: "center",
         }}
@@ -82,6 +85,7 @@ export default function Explore() {
               boxSizing: "border-box",
               background: "transparent",
               outline: "none",
+              color: night ? "#000000" : "#ffffff",
             }}
             placeholder="Pesquise por imagens!"
             ref={searchInput}
@@ -90,7 +94,10 @@ export default function Explore() {
             type="submit"
             style={{ background: "none", border: "none", cursor: "pointer" }}
           >
-            <Search size={20} />
+            <Search
+              size={20}
+              style={{ color: night ? "#000000" : "#ffffff" }}
+            />
           </button>
         </form>
       </div>
