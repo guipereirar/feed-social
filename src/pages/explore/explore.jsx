@@ -11,6 +11,7 @@ export default function Explore() {
   const night = theme.state.nightMode;
   const searchInput = useRef(null);
   const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchRandomImages = () => {
     axios
@@ -37,6 +38,7 @@ export default function Explore() {
         )
         .then((response) => {
           setImages(response.data.results);
+          setLoading(false);
         })
         .catch((error) => {
           console.error("Erro ao buscar imagens:", error);
@@ -45,8 +47,10 @@ export default function Explore() {
   };
 
   useEffect(() => {
-    fetchRandomImages();
-  }, []);
+    if (loading) {
+      fetchRandomImages();
+    }
+  }, [loading]);
 
   const handleSearch = (event) => {
     event.preventDefault();
