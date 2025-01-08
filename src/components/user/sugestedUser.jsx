@@ -2,23 +2,54 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const API_SEARCH_USER = "https://api.unsplash.com/photos/random";
+const API_USER_DETAILS = "https://api.unsplash.com/users";
 
 export default function UserSugestion() {
   const [usersInfo, setUsersInfo] = useState([]);
+  const [followersCount, setFollowersCount] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const fetchUsername = () => {
-    axios
-      .get(
+  const fetchUsers = async () => {
+    try {
+      const response = await axios.get(
         `${API_SEARCH_USER}?client_id=${import.meta.env.VITE_API_KEY}&count=5`
-      )
-      .then((response) => {
-        setUsersInfo(response.data);
+      );
+
+      const users = response.data;
+      setUsersInfo(users);
+
+      const followersData = await Promise.all(
+        users.map((user) =>
+          axios
+            .get(
+              `${API_USER_DETAILS}/${user.user.username}?client_id=${
+                import.meta.env.VITE_API_KEY
+              }`
+            )
+            .then((res) => ({
+              username: user.user.username,
+              followers: res.data.followers_count,
+            }))
+        )
+      );
+
+      const followersMap = {};
+      followersData.forEach(({ username, followers }) => {
+        followersMap[username] = followers;
       });
+      setFollowersCount(followersMap);
+
+      setLoading(false);
+    } catch (error) {
+      console.error("Erro ao buscar usuários ou seguidores", error);
+    }
   };
 
   useEffect(() => {
-    fetchUsername();
-  }, []);
+    if (loading) {
+      fetchUsers();
+    }
+  }, [loading]);
 
   return usersInfo.map((userInfo) => (
     <div
@@ -57,7 +88,11 @@ export default function UserSugestion() {
           }}
         >
           <p>@{userInfo.user.username}</p>
-          <p>{userInfo.user.total_photos} fotos</p>
+          <p>
+            {followersCount[userInfo.user.username] !== undefined
+              ? `${followersCount[userInfo.user.username]} seguidores`
+              : ""}
+          </p>
         </div>
       </div>
       <p style={{ fontWeight: "bold", color: "#007AFF" }}>Seguir</p>
