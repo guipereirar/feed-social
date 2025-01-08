@@ -7,7 +7,7 @@ export default function Settings() {
         display: "flex",
         flexDirection: "column",
         paddingTop: "75px",
-        paddingLeft: "18%",
+        marginLeft: "18%",
         gap: "30px",
         width: "100vw",
         height: "100vh",

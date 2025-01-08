@@ -62,7 +62,7 @@ export default function Explore() {
         flexDirection: "column",
         width: "100%",
         paddingTop: "25px",
-        paddingLeft: "15%",
+        marginLeft: "15%",
         gap: "20px",
       }}
     >

@@ -8,7 +8,7 @@ export default function Home() {
       style={{
         display: "flex",
         width: "100%",
-        paddingLeft: "15%",
+        marginLeft: "15%",
         position: "sticky",
       }}
     >
