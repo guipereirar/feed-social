@@ -41,7 +41,7 @@ export default function UserSugestion() {
 
       setLoading(false);
     } catch (error) {
-      console.error("Erro ao buscar usuários ou seguidores", error);
+      console.error("Erro ao buscar usuários ou seguidores:", error);
     }
   };
 
@@ -95,7 +95,9 @@ export default function UserSugestion() {
           </p>
         </div>
       </div>
-      <p style={{ fontWeight: "bold", color: "#007AFF" }}>Seguir</p>
+      <p style={{ fontWeight: "bold", color: "#007AFF", cursor: "pointer" }}>
+        Seguir
+      </p>
     </div>
   ));
 }

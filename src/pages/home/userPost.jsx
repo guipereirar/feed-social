@@ -1,4 +1,4 @@
-import { Image } from "lucide-react";
+import { Images } from "lucide-react";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/theme";
 
@@ -59,7 +59,7 @@ export default function UserPost() {
           gap: "8px",
         }}
       >
-        <Image />
+        <Images cursor="pointer" />
         <button
           style={{
             height: "25px",

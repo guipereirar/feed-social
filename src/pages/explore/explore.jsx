@@ -119,7 +119,12 @@ export default function Explore() {
           <img
             key={image.id}
             src={image.urls.regular}
-            style={{ height: "250px", objectFit: "cover", aspectRatio: "1" }}
+            style={{
+              height: "250px",
+              objectFit: "cover",
+              aspectRatio: "1",
+              borderRadius: "5px",
+            }}
           />
         ))}
       </div>

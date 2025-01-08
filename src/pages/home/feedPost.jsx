@@ -17,7 +17,6 @@ export default function FeedPost() {
       .get(`${API_URL}?client_id=${import.meta.env.VITE_API_KEY}`)
       .then((response) => {
         setImages(response.data);
-        console.log(response.data);
         setLoading(false);
       })
       .catch((error) => {
