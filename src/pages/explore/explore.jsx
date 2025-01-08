@@ -72,7 +72,7 @@ export default function Explore() {
           width: "870px",
           height: "50px",
           borderRadius: "10px",
-          backgroundColor: night ? "#ffffff" : "#121212",
+          backgroundColor: night ? "#121212" : "#ffffff",
           alignItems: "center",
           justifyContent: "center",
         }}
@@ -85,7 +85,7 @@ export default function Explore() {
               boxSizing: "border-box",
               background: "transparent",
               outline: "none",
-              color: night ? "#000000" : "#ffffff",
+              color: night ? "#ffffff" : "#000000",
             }}
             placeholder="Pesquise por imagens!"
             ref={searchInput}
@@ -96,7 +96,7 @@ export default function Explore() {
           >
             <Search
               size={20}
-              style={{ color: night ? "#000000" : "#ffffff" }}
+              style={{ color: night ? "#ffffff" : "#000000" }}
             />
           </button>
         </form>

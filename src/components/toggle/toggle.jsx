@@ -1,5 +1,5 @@
 import { Moon, Sun } from "lucide-react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ThemeContext } from "../../context/theme";
 
 export default function Toggle() {
@@ -8,13 +8,16 @@ export default function Toggle() {
   const handleClick = () => {
     theme.dispatch({ type: "TOGGLE" });
   };
+  useEffect(() => {
+    console.log("Night mode updated:", night);
+  }, [night]);
   return (
     <div
       style={{
         display: "flex",
         alignItems: "center",
         justifyContent: "space-around",
-        border: night ? "1px solid #000000" : "1px solid #ffffff",
+        border: night ? "2px solid #ffffff" : "2px solid #000000",
         width: "50px",
         height: "25px",
         borderRadius: "20px",
@@ -27,11 +30,11 @@ export default function Toggle() {
         style={{
           width: "25px",
           height: "25px",
-          backgroundColor: night ? "#000000" : "#ffffff",
+          backgroundColor: night ? "#ffffff" : "#000000",
           borderRadius: "50px",
           position: "absolute",
           cursor: "pointer",
-          left: night ? "25px" : "0px",
+          left: night ? "0px" : "25px",
         }}
         onClick={handleClick}
       ></div>

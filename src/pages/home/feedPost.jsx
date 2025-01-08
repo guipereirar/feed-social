@@ -33,10 +33,10 @@ export default function FeedPost() {
       style={{
         height: "535px",
         width: "600px",
-        backgroundColor: night ? "#EAEAEA" : "#121212",
+        backgroundColor: night ? "#121212" : "#EAEAEA",
         border: night
-          ? "1px solid rgba(0, 0, 0, 0.4)"
-          : "1px solid rgba(255, 255, 255, 0.4)",
+          ? "1px solid rgba(255, 255, 255, 0.4)"
+          : "1px solid rgba(0, 0, 0, 0.4)",
         borderRadius: "5px",
       }}
     >

@@ -13,8 +13,8 @@ export default function Sidebar() {
         width: "15%",
         height: "100vh",
         borderRight: night
-          ? "1px solid rgba(0, 0, 0, 0.4)"
-          : "1px solid rgba(255, 255, 255, 0.4)",
+          ? "1px solid rgba(255, 255, 255, 0.4)"
+          : "1px solid rgba(0, 0, 0, 0.4)",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -42,7 +42,7 @@ export default function Sidebar() {
               to="/"
               style={{
                 textDecoration: "none",
-                color: night ? "#000000" : "#ffffff",
+                color: night ? "#ffffff" : "#000000",
               }}
             >
               <div style={{ display: "flex", gap: "20px" }}>
@@ -56,7 +56,7 @@ export default function Sidebar() {
               to="/explore"
               style={{
                 textDecoration: "none",
-                color: night ? "#000000" : "#ffffff",
+                color: night ? "#ffffff" : "#000000",
               }}
             >
               <div style={{ display: "flex", gap: "20px" }}>
@@ -68,7 +68,7 @@ export default function Sidebar() {
               to="/settings"
               style={{
                 textDecoration: "none",
-                color: night ? "#000000" : "#ffffff",
+                color: night ? "#ffffff" : "#000000",
               }}
             >
               <div style={{ display: "flex", gap: "20px" }}>

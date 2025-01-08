@@ -11,10 +11,10 @@ export default function UserPost() {
         display: "flex",
         height: "100px",
         width: "600px",
-        backgroundColor: night ? "#EAEAEA" : "#121212",
+        backgroundColor: night ? "#121212" : "#EAEAEA",
         border: night
-          ? "1px solid rgba(0, 0, 0, 0.4)"
-          : "1px solid rgba(255, 255, 255, 0.4)",
+          ? "1px solid rgba(255, 255, 255, 0.4)"
+          : "1px solid rgba(0, 0, 0, 0.4)",
         borderRadius: "5px",
         justifyContent: "space-between",
       }}
@@ -64,8 +64,8 @@ export default function UserPost() {
           style={{
             height: "25px",
             width: "100px",
-            backgroundColor: night ? "#000000" : "#ffffff",
-            color: night ? "#ffffff" : "#000000",
+            backgroundColor: night ? "#ffffff" : "#000000",
+            color: night ? "#000000" : "#ffffff",
             fontWeight: "bold",
             border: "none",
             borderRadius: "10px",

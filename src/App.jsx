@@ -4,16 +4,16 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import Home from "./pages/home/home";
 import Explore from "./pages/explore/explore";
 import Settings from "./pages/settings/settings";
-import { ThemeContext, ThemeProvicer } from "./context/theme";
+import { ThemeContext, ThemeProvider } from "./context/theme";
 import { useContext } from "react";
 
 function App() {
   return (
-    <ThemeProvicer>
+    <ThemeProvider>
       <BrowserRouter>
         <Content />
       </BrowserRouter>
-    </ThemeProvicer>
+    </ThemeProvider>
   );
 }
 
@@ -24,8 +24,8 @@ function Content() {
     <div
       style={{
         display: "flex",
-        backgroundColor: night ? "#f1f0f0" : "#000000",
-        color: night ? "#000000" : "#FFFFFF",
+        backgroundColor: night ? "#000000" : "#f1f0f0",
+        color: night ? "#ffffff" : "#000000",
       }}
     >
       <Sidebar />
