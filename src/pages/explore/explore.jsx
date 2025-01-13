@@ -46,17 +46,22 @@ export default function Explore() {
     }
   };
 
-  useEffect(() => {
-    if (loading) {
-      fetchRandomImages();
-    }
-  }, [loading]);
-
   const handleSearch = (event) => {
     event.preventDefault();
     console.log(searchInput.current.value);
     fetchSearchImages();
   };
+
+  const handleFilter = (filter) => {
+    searchInput.current.value = filter;
+    fetchSearchImages();
+  };
+
+  useEffect(() => {
+    if (loading) {
+      fetchRandomImages();
+    }
+  }, [loading]);
 
   return (
     <div
@@ -76,7 +81,7 @@ export default function Explore() {
           width: "870px",
           height: "50px",
           borderRadius: "10px",
-          backgroundColor: night ? "#121212" : "#ffffff",
+          backgroundColor: night ? "#121212" : "#D9D9D9",
           alignItems: "center",
           justifyContent: "center",
         }}
@@ -90,6 +95,7 @@ export default function Explore() {
               background: "transparent",
               outline: "none",
               color: night ? "#ffffff" : "#000000",
+              fontSize: "16px",
             }}
             placeholder="Pesquise por imagens!"
             ref={searchInput}
@@ -104,6 +110,93 @@ export default function Explore() {
             />
           </button>
         </form>
+      </div>
+      <div style={{ display: "flex", flexDirection: "row", gap: "50px" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: night ? "#121212" : "#D9D9D9",
+            width: "230px",
+            height: "35px",
+            borderRadius: "10px",
+            cursor: "pointer",
+            color: night ? "#ffffff" : "#000000",
+            fontWeight: "bold",
+          }}
+          onClick={() => handleFilter("cats")}
+        >
+          Gatos
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: night ? "#121212" : "#D9D9D9",
+            width: "230px",
+            height: "35px",
+            borderRadius: "10px",
+            cursor: "pointer",
+            color: night ? "#ffffff" : "#000000",
+            fontWeight: "bold",
+          }}
+          onClick={() => handleFilter("moon")}
+        >
+          Lua
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: night ? "#121212" : "#D9D9D9",
+            width: "230px",
+            height: "35px",
+            borderRadius: "10px",
+            cursor: "pointer",
+            color: night ? "#ffffff" : "#000000",
+            fontWeight: "bold",
+          }}
+          onClick={() => handleFilter("landscape")}
+        >
+          Paisagem
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: night ? "#121212" : "#D9D9D9",
+            width: "230px",
+            height: "35px",
+            borderRadius: "10px",
+            cursor: "pointer",
+            color: night ? "#ffffff" : "#000000",
+            fontWeight: "bold",
+          }}
+          onClick={() => handleFilter("haircuts")}
+        >
+          Cortes de cabelo
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: night ? "#121212" : "#D9D9D9",
+            width: "230px",
+            height: "35px",
+            borderRadius: "10px",
+            cursor: "pointer",
+            color: night ? "#ffffff" : "#000000",
+            fontWeight: "bold",
+          }}
+          onClick={() => handleFilter("flowers")}
+        >
+          Flores
+        </div>
       </div>
       <div
         style={{
